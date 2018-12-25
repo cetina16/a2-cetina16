@@ -4,19 +4,23 @@
 ### The landing page for assignment 3 should be at /
 #####################################################################
 
-from bottle import route, run, default_app, debug, template, request, static_file
+from bottle import route, run, default_app, debug, template, request, static_file, template
+
+def static_file_callback(filename):
+    return static_file(filename, root=".")
 
 
-def home():
+route('/static/<filename>', 'GET', static_file_callback)
+def html():
     page = """
 
 <!DOCTYPE html>
-	<html lang="en">
+	<html lang="en-US">
 		<head>
 		  <title> Vanlife </title>
 		<meta charset="utf-8"/>
-        <link rel= "stylesheet" href= "style.css">
-        <link rel="icon" href="vl.ico">
+        <link rel= "stylesheet" href= "/static/style.css">
+        <link rel="icon" href="/static/vl.ico">
         <style> 
 		.box {width:800px;
               margin:auto;
@@ -27,16 +31,16 @@ def home():
 		</head>
 	    <body>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
  <header>
-  <img src="vl.png" alt="vanlife designed by Gimp" width="350" height="150">
+  <img src="/static/vl.png" alt="vanlife designed by Gimp" width="350" height="150">
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
  </header>
 
  <div class="menu">
 		     <ul>
-				  <li><a href="index.html">Mainpage</a></li>
-				 <li><a href="whatisvanlife.html">WhatisVanLife</a></li>
-				 <li><a href="doityourself.html">Do it Yourself</a></li>
-				 <li><a href="types.html">Types </a></li> 
+				  <li><a href="/static/index.html">Mainpage</a></li>
+				 <li><a href="/static/whatisvanlife.html">WhatisVanLife</a></li>
+				 <li><a href="/static/doityourself.html">Do it Yourself</a></li>
+				 <li><a href="/static/types.html">Types </a></li> 
 			 </ul> </div><br>
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; 
@@ -62,10 +66,10 @@ article about</strong> <a href="https://tinyurl.com/yc4r4x66"> <abbr title= "Is 
 &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 
 
-<img src="van2ink.png" alt="vanimage" width="800" height="500"  >
+<img src="/static/van2ink.png" alt="vanimage" width="800" height="500"  >
 &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 
-<img src="vanedited.png" alt="vanimage2" width="800" height="500"  >
+<img src="/static/vanedited.png" alt="vanimage2" width="800" height="500"  >
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; 
 	&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; 
 	&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
@@ -86,7 +90,7 @@ article about</strong> <a href="https://tinyurl.com/yc4r4x66"> <abbr title= "Is 
     return page
 
 
-route('/', 'GET', home)
+route('/', 'GET', html)
 
 #####################################################################
 ### Don't alter the below code.
