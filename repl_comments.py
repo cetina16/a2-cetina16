@@ -1,3 +1,4 @@
+# Borrowed from https://bitbucket.org/damienjadeduff/hashing_example/raw/master/hash_password.py
 from hashlib import sha256
 def create_hash(password):
     pw_bytestring = password.encode()
@@ -24,4 +25,4 @@ if hsh1==password_hash:
             print(int(i+1), ".", my_list[i])
             i=i+1
 else:
-    print("failed login")
+    print("Login failed, enter the correct password!")
