@@ -4,16 +4,54 @@
 ### The landing page for assignment 3 should be at /
 #####################################################################
 
-from bottle import route, run, default_app, debug, template, request, static_file, template
+from bottle import route, run, default_app, debug, template, request, static_file, template, get, post
+from hashlib import sha256
+#Below code is taking from https://bitbucket.org/damienjadeduff/hashing_example/raw/master/hash_password.py
+def create_hash(password):
+    pw_bytestring = password.encode()
+    return sha256(pw_bytestring).hexdigest()
+
+
+My_list = []
+Passwords = {}
+
+index = 0
+password_index = 0
+password_found = False
+
+
+def Registering(username, pw1):
+    global Passwords
+    hsh1 = create_hash(pw1)
+    if (username not in Passwords):
+        Passwords[username] = hsh1
+        return True
+    else:
+        return False
+
+
+def Comment(username, pw1):
+    global Passwords
+    global My_list
+
+    hsh2 = create_hash(pw1)
+
+    if (username in Passwords):
+        if (Passwords[username] == hsh2):
+            return True
+        else:
+            return False
+
+
+def htmlify(text):
 
 def static_file_callback(filename):
     return static_file(filename, root=".")
 
 
 route('/static/<filename>', 'GET', static_file_callback)
-def html():
+def html ():
     page = """
-
 <!DOCTYPE html>
 	<html lang="en-US">
 		<head>
@@ -41,6 +79,7 @@ def html():
 				 <li><a href="/static/whatisvanlife.html">WhatisVanLife</a></li>
 				 <li><a href="/static/doityourself.html">Do it Yourself</a></li>
 				 <li><a href="/static/types.html">Types </a></li> 
+				 <li><a href="/static/comments.html">Comments</a></li>
 			 </ul> </div><br>
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; 
@@ -48,17 +87,27 @@ def html():
 &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 
   <div class="box">
-<p style= "font-family: Times New Roman, sans-serif ;text-align:justify;text-indent:10px;
+  <p style= "font-family: Times New Roman, sans-serif ;text-align:justify;text-indent:10px;
    text-align: center;margin:auto ; padding:20px;
-  color: darkblue; font-size: 20pt">
-Hello everyone!Every human being needs to relax 
-and feel free. Some people stay at home for relaxing.
-Get rid of stress and tiredness is easy for them.Actually, I was one of them since 
-watching videos about Vanlife.<strong>If you want to find out whether it is suitable for you,read an informative
-article about</strong> <a href="https://tinyurl.com/yc4r4x66"> <abbr title= "Is van life for you?"><i>vanlife</i></abbr></a>
-<br> There are many options. You can buy a old transporter and convert 
-  it to a dream van or you can directly buy an amazing expensive van.
- It depends on your choises and financial conditions.<br> Live simply, live happier!</div>
+  color: darkblue; font-size: 20pt"> Comments </p>
+  
+			<form class="form_input" action="/yorum" method="POST">
+				<br/>
+				<textarea type="text" name="comments" style="font-size:20px; color:darkblue; background-color:lemonchiffon;  border:3px solid darkblue; width:200" placeholder=" Please enter your comment"></textarea><br/>
+				Enter your passwords:<br/>
+				<input type="password" name="password"><br/><br/>
+				<button type="submit" name="button" style=">Submit</button>
+			</form>
+			<h1 style="font-size:24px; color:darkblue;"> Previosly entered comments </h1><br/>
+		</div>
+		
+		<ol>
+			
+		</ol>
+  
+  
+
+</div>
 
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; 
@@ -66,13 +115,7 @@ article about</strong> <a href="https://tinyurl.com/yc4r4x66"> <abbr title= "Is 
 &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 
 
-<img src="/static/van2ink.png" alt="vanimage" width="800" height="500"  >
-&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 
-<img src="/static/vanedited.png" alt="vanimage2" width="800" height="500"  >
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; 
-	&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; 
-	&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 
 	<div class="footer">
 	<footer>
@@ -85,7 +128,8 @@ article about</strong> <a href="https://tinyurl.com/yc4r4x66"> <abbr title= "Is 
 <a href="https://www.thevanual.com/" target="_blank"> thevanual.com </a>
 </footer></div>
 </body>
-</html>
+
+
     """
     return page
 
