@@ -5,45 +5,7 @@
 #####################################################################
 
 from bottle import route, run, default_app, debug, template, request, static_file, template, get, post
-from hashlib import sha256
-#Below code is taking from https://bitbucket.org/damienjadeduff/hashing_example/raw/master/hash_password.py
-def create_hash(password):
-    pw_bytestring = password.encode()
-    return sha256(pw_bytestring).hexdigest()
 
-
-My_list = []
-Passwords = {}
-
-index = 0
-password_index = 0
-password_found = False
-
-
-def Registering(username, pw1):
-    global Passwords
-    hsh1 = create_hash(pw1)
-    if (username not in Passwords):
-        Passwords[username] = hsh1
-        return True
-    else:
-        return False
-
-
-def Comment(username, pw1):
-    global Passwords
-    global My_list
-
-    hsh2 = create_hash(pw1)
-
-    if (username in Passwords):
-        if (Passwords[username] == hsh2):
-            return True
-        else:
-            return False
-
-
-def htmlify(text):
 
 def static_file_callback(filename):
     return static_file(filename, root=".")
