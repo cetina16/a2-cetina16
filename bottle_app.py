@@ -40,7 +40,7 @@ def html ():
 				  <li><a href="/static/index.html">Mainpage</a></li>
 				 <li><a href="/static/whatisvanlife.html">WhatisVanLife</a></li>
 				 <li><a href="/static/doityourself.html">Do it Yourself</a></li>
-				 <li><a href="/static/types.html">Types </a></li> 
+				 <li><a href="/static/types.html">Types </a></li>
 				 <li><a href="/static/comments.html">Comments</a></li>
 			 </ul> </div><br>
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
@@ -49,27 +49,17 @@ def html ():
 &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 
   <div class="box">
-  <p style= "font-family: Times New Roman, sans-serif ;text-align:justify;text-indent:10px;
+<p style= "font-family: Times New Roman, sans-serif ;text-align:justify;text-indent:10px;
    text-align: center;margin:auto ; padding:20px;
-  color: darkblue; font-size: 20pt"> Comments </p>
-  
-			<form class="form_input" action="/yorum" method="POST">
-				<br/>
-				<textarea type="text" name="comments" style="font-size:20px; color:darkblue; background-color:lemonchiffon;  border:3px solid darkblue; width:200" placeholder=" Please enter your comment"></textarea><br/>
-				Enter your passwords:<br/>
-				<input type="password" name="password"><br/><br/>
-				<button type="submit" name="button" style=">Submit</button>
-			</form>
-			<h1 style="font-size:24px; color:darkblue;"> Previosly entered comments </h1><br/>
-		</div>
-		
-		<ol>
-			
-		</ol>
-  
-  
-
-</div>
+  color: darkblue; font-size: 20pt">
+Hello everyone!Every human being needs to relax 
+and feel free. Some people stay at home for relaxing.
+Get rid of stress and tiredness is easy for them.Actually, I was one of them since 
+watching videos about Vanlife.<strong>If you want to find out whether it is suitable for you,read an informative
+article about</strong> <a href="https://tinyurl.com/yc4r4x66"> <abbr title= "Is van life for you?"><i>vanlife</i></abbr></a>
+<br> There are many options. You can buy a old transporter and convert 
+  it to a dream van or you can directly buy an amazing expensive van.
+ It depends on your choises and financial conditions.<br> Live simply, live happier!</div>
 
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; 
@@ -77,7 +67,13 @@ def html ():
 &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 
 
+<img src="/static/van2ink.png" alt="vanimage" width="800" height="500"  >
+&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 
+<img src="/static/vanedited.png" alt="vanimage2" width="800" height="500"  >
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; 
+	&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; 
+	&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 
 	<div class="footer">
 	<footer>
@@ -90,6 +86,7 @@ def html ():
 <a href="https://www.thevanual.com/" target="_blank"> thevanual.com </a>
 </footer></div>
 </body>
+</html>
 
 
     """
