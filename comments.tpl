@@ -37,19 +37,11 @@
    text-align: center;margin:auto ; padding:20px;
   color: darkblue; font-size: 20pt"> Comments </p>
   
-			<form class="form_input" action="/yorum" method="POST">
-				<br/>
-				<textarea type="text" name="comments" style="font-size:20px; color:darkblue; background-color:lemonchiffon;  border:3px solid darkblue; width:200" placeholder=" Please enter your comment"></textarea><br/>
-				Enter your passwords:<br/>
-				<input type="password" name="password"><br/><br/>
-				<button type="submit" name="button" style=">Submit</button>
-			</form>
+	
 			
 		</div>
 		
-		<ol>
-			
-		</ol>
+		
   
   
 
