@@ -4,19 +4,21 @@
 ### The landing page for assignment 3 should be at /
 #####################################################################
 
-from bottle import route, run, default_app, debug, template, request, static_file, template, get, post
-my_list=[]
+from bottle import *
+from hashlib import sha256
+
+my_list = list()
 
 
-password_hash = "c2e2de13717990810a222f960c2b73f7d981a7a230a8c5b05ea622ddcc6e1710"
+password= "c2e2de13717990810a222f960c2b73f7d981a7a230a8c5b05ea622ddcc6e1710"
 def create_hash(password): 
     pw_bytestring = password.encode()
     return sha256(pw_bytestring).hexdigest()
-	
-	
+
 @route('/static/<filepath>')
 def server_static(filepath):
     return static_file(filepath, root='./')
+
 #all pages
 @route("/doityourself.html")
 def doityourself():
@@ -30,22 +32,18 @@ def types():
 def whatisvanlife():
     return template("whatisvanlife.html")
 
-
-
-
-
 @route('/comment')
-def comment_acma():
+def commentop():
     return template('comment.html', my_list= my_list)
 
 #post method
 @post('/comment')
-def comment_koyma():
+def comment_adding():
     psw=request.forms.get('password')
     comment=request.forms.get('comment')
     if create_hash(psw) == password:
         my_list.append(comment)
-        return template('comment.html',my_list=my_list)
+        return template('comment.html', my_list=my_list)
     else:
         return template('comment.html', my_list=my_list)
 
@@ -61,11 +59,7 @@ def comment_koyma():
 def index():
     return template("index.html")
  
- def static_file_callback(filename):
-    return static_file(filename, root=".")
 
-
-route('/static/<filename>', 'GET', static_file_callback)
 
    
 
