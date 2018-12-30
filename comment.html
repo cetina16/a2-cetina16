@@ -23,21 +23,32 @@
 				 <li><a href="/static/types.html">Types </a></li> 
 				 <li><a href="/static/comment.html">Comments </a></li>
 			 </ul> </div><br>
+			 <div class="box">
+<p style= "font-family: Times New Roman, sans-serif ;text-align:justify;text-indent:10px;
+   text-align: center;margin:auto ; padding:20px;
+  color: darkblue; font-size: 20pt">Comments........ </p>
 							
 	<form action = "/x" method = "post">		
 			
-			<label> Please enter your comment:</label> <br>
-			<textarea name="Comments" rows="5" cols="85"></textarea>
+			<label style= "font-family: Times New Roman, sans-serif ;text-align:justify;text-indent:10px;
+   text-align: center;margin:auto ; padding:20px;
+  color: darkblue; font-size: 20pt"> Please enter your comment:</label> <br>
+			<textarea name="Comments" rows="5" cols="100"></textarea> </br>
 			
-			<br><h3>Password:</h3><br>
-			<input type="password" name="password" ><br>
-            
-			<input type="submit" value="Sent">		
+			<br><p style= "font-family: Times New Roman, sans-serif ;text-align:justify;text-indent:10px;
+    padding:20px;
+  color: darkblue; font-size: 20pt"> Please enter the password:</p>
+			<input type="password" name="password"> </br>
+</br>            
+			<input type="submit" value="Submit the comment">		</br>
+			<br><h3 style= "font-family: Times New Roman, sans-serif ;text-align:justify;text-indent:10px;
+   text-align: center;margin:auto ; padding:20px;
+  color: darkblue; font-size: 20pt"> Previously entered comments: </h3> </br>
 	</form>
-	
-	%for x in range(len(my_list)):
+	%for i in range(len(my_list)):
         	
-        	<p>{{x+1}}. {{my_list[x]}}</p>
+        	<p>{{i+1}}. {{my_list[i]}}</p>
 	%end
+	
 	</body>
 </html>
