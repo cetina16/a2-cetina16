@@ -6,8 +6,7 @@
 
 from bottle import *
 from hashlib import sha256
-from bottle import  *
-from hashlib import sha256
+
 
 my_list = list()
 
