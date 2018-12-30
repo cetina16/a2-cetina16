@@ -16,29 +16,12 @@ def create_hash(password):
     pw_bytestring = password.encode()
     return sha256(pw_bytestring).hexdigest()
 
-@route('/static/<filepath>')
-def server_static(filepath):
-    return static_file(filepath, root='./')
 
-#all pages
-@route("/doityourself.html")
-def doityourself():
-    return template("doityourself.html")
+@route('/comment')
+def new_comment_adding():
+    return template('comment.html', my_list=my_list)
 
-@route("/types.html")
-def types():
-    return template("types.html")
-
-@route("/whatisvanlife.html")
-def whatisvanlife():
-    return template("whatisvanlife.html")
-
-@route('/x')
-def commentop():
-    return template('comment.html', my_list= my_list)
-
-
-@post('/x')   #post method
+@post('/comment')   #post method
 def comment_adding():
     psw=request.forms.get('password')
     comment= request.forms.get('comment')
@@ -47,6 +30,16 @@ def comment_adding():
         return template('comment.html', my_list=my_list)
     else:
         return template('comment.html', my_list=my_list)
+
+
+@route('/static/<filename>')
+def static_file_callback(filename):
+    return static_file(filename, root='./')
+
+
+
+
+
 
 
 @route('/')
