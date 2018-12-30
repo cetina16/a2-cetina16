@@ -50,13 +50,14 @@
              <input type="radio" name="chooseoone" value="No">No<br>
 			<input type="submit" value="Sent">		
 	</form>
-	 </div>
+	  	%for i in range(len(my_list)):
 
-		%for i in range(len(my_list)):
-        	
         	<p> {{i+1}}. {{my_list[i]}} </p>
 	%end
-		
+
+	 </div>
+
+
 		
 
 
