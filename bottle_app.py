@@ -16,10 +16,11 @@ def create_hash(password):
     pw_bytestring = password.encode()
     return sha256(pw_bytestring).hexdigest()
 
+@route('/static/<filepath>')
+def server_static(filepath):
+    return static_file(filepath, root='./')
 
-@route('/comment')
-def new_comment_adding():
-    return template('comment.html', my_list=my_list)
+
 
 @route("/doityourself.html")
 def index():
@@ -37,6 +38,10 @@ def index():
 def index():
     return template("index.html")
 
+@route('/comment')
+def new_comment_adding():
+    return template('comment.html', my_list=my_list)
+
 @post('/comment')   #post method
 def comment_adding():
     psw=request.forms.get('password')
@@ -48,9 +53,6 @@ def comment_adding():
         return template('comment.html', my_list=my_list)
 
 
-@route('/static/<filename>')
-def static_file_callback(filename):
-    return static_file(filename, root='./')
 
 
 
