@@ -12,7 +12,13 @@
               background-color: lemonchiffon;
               border: 1px solid darkblue;}
 			  
-	    .gizle { color: lemonchiffon;}
+	    .pre_com { color: darkblue; 
+					width:500px;
+					height:200px
+					margin:auto;border:
+					3px solid darkblue; 
+					background-color: lemonchiffon;
+					margin:0 auto;}
 		
 		</style>
 	</head>
@@ -71,7 +77,8 @@
 
 <p style= "font-family: Times New Roman, sans-serif ;text-align:justify;text-indent:10px;
    text-align: center;margin:auto ; padding:20px;
-  color: darkblue; font-size: 20pt">  Thank you for your attention and comment my website ! </br></br></br></br></br></br></br></br></br>
+  color: darkblue; font-size: 20pt">  Thank you for your attention and comment my website ! </br>
+  <img src="/static/vann.jpg" alt="van image" width="350" height="150"></br></br></br></br></br></br></br></br>
   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; 
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
@@ -91,13 +98,14 @@
 &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; 
 &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 </br></br></br>
+
   Previously entered comments........... </p>
-  
+  <div class="pre_com">
 
 	%for i in range(len(comments)):
         <p>{{i+1}}. {{comments[i]}}</p>
 	%end
 	
-	
+	</div>
 		</body>
 </html>
