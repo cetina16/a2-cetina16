@@ -8,67 +8,60 @@ from bottle import *
 from hashlib import sha256
 
 
-my_list = list()
 
 
 password= "c2e2de13717990810a222f960c2b73f7d981a7a230a8c5b05ea622ddcc6e1710"
-def create_hash(password): 
-    pw_bytestring = password.encode()
-    return sha256(pw_bytestring).hexdigest()
 
-@route('/static/<filepath>')
-def server_static(filepath):
-    return static_file(filepath, root='./')
+comments = list()
 
+@route('/static/<filename>')
+def server_static(filename):
+    return static_file(filename, root='.')
 
+@route('<filename>.css')
+def stylesheets(filename):
+    return static_file(filename, root='static')
+
+@route('/')
+
+@route("/index.html")
+def index():
+    return template("index.html")
 
 @route("/doityourself.html")
-def index():
+def doityourself():
     return template("doityourself.html")
 
 @route("/whatisvanlife.html")
-def index():
+def whatisvanlife():
     return template("whatisvanlife.html")
 
 @route("/types.html")
-def index():
+def types():
     return template("types.html")
 
-@route("/index.html")
-def index():
-    return template("index.html")
+@route("/login")
+def login_page():
+    return "all"
+
+def create_hash(password):
+    pw_bytestring = password.encode()
+    return sha256(pw_bytestring).hexdigest()
 
 @route('/comment')
-def new_comment_adding():
-    return template('comment.html', my_list=my_list)
+def comment1():
+    return template('comment.html', comments=comments)
 
-@post('/comment')   #post method
-def comment_adding():
+
+@post('/comment')
+def comment2():
     psw=request.forms.get('password')
-    comment= request.forms.get('comment')
+    comment=request.forms.get('comment')
     if create_hash(psw) == password:
-        my_list.append(comment)
-        return template('comment.html', my_list=my_list)
+        comments.append(comment)
+        return template('comment.html', comments=comments)
     else:
-        return template('comment.html', my_list=my_list)
-
-
-
-
-
-
-
-
-
-@route('/')
-@route("/index.html")
-def index():
-    return template("index.html")
- 
-
-
-   
-
+        return template('comment.html', comments=comments)
     
 
 
