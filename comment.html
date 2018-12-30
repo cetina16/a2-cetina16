@@ -28,30 +28,41 @@
    text-align: center;margin:auto ; padding:20px;
   color: darkblue; font-size: 30pt">Comments........ </p>
 							
+	
+	
+	
+	
 	<form action = "/comment" method = "post">		
 			
 			<label style= "font-family: Times New Roman, sans-serif ;text-align:justify;text-indent:10px;
    text-align: center;margin:auto ; padding:20px;
-  color: darkblue; font-size: 20pt"> Please enter your comment:</label> <br>
+  color: darkblue; font-size: 20pt">
+  Please enter your comment:</label> <br>
+			
 			<textarea name="Comments" rows="5" cols="100"></textarea> </br>
+			
 			
 			<br><p style= "font-family: Times New Roman, sans-serif ;text-align:justify;text-indent:10px;
     padding:20px;
   color: darkblue; font-size: 20pt"> Please enter the password:</p>
+			
 			<input type="password" name="password"> </br>
-</br>             <p style= "font-family: Times New Roman, sans-serif ;text-align:justify;text-indent:10px;
+</br>             
+<p style= "font-family: Times New Roman, sans-serif ;text-align:justify;text-indent:10px;
     padding:20px;
-  color: darkblue; font-size: 20pt"> What do you think about my comment section?Like it?</p>
-            <input type="radio" name="chooseoone" value="Yes"> Yess! :)<br>
+  color: darkblue; font-size: 20pt"> 
+  What do you think about my comment section?Like it?</p>
+         
+		 <input type="radio" name="chooseoone" value="Yes"> Yess! :)<br>
              <input type="radio" name="chooseoone"value="No"> No :( <br>
 			<input type="submit" value="Submit the comment">		</br>
 			<br><h3 style= "font-family: Times New Roman, sans-serif ;text-align:justify;text-indent:10px;
    text-align: center;margin:auto ; padding:20px;
   color: darkblue; font-size: 20pt"> Previously entered comments: </h3> </br>
 	</form>
-	%for i in range(len(my_list)):
+	%for x in range(len(my_list)):
         	
-        	<p>{{i+1}}. {{my_list[i]}}</p>
+        	<p>{{x+1}}. {{my_list[x]}}</p>
 	%end
 	
 	</body>
