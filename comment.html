@@ -36,7 +36,7 @@
   <div class="box">
   <p style= "font-family: Times New Roman, sans-serif ;text-align:justify;text-indent:10px;
    text-align: center;margin:auto ; padding:20px;
-  color: darkblue; font-size: 20pt"> Comments </p>
+  color: darkblue; font-size: 20pt"> Comments </p> </div>
  
  
  <form action = "/comment" method = "post">
@@ -49,13 +49,13 @@
             <input type="radio" name="chooseoone" value="Yes">Yes<br>
              <input type="radio" name="chooseoone" value="No">No<br>
 			<input type="submit" value="Sent">		
-	</form>
-	  	%for i in range(len(my_list)):
+	</form> 
+	for i in range(len(my_list)):
 
         	<p> {{i+1}}. {{my_list[i]}} </p>
 	%end
 
-	 </div>
+	 
 
 
 		
