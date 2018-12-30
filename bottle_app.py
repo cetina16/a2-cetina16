@@ -6,7 +6,8 @@
 
 from bottle import *
 from hashlib import sha256
-
+from bottle import  *
+from hashlib import sha256
 my_list = list()
 
 
@@ -36,22 +37,16 @@ def whatisvanlife():
 def commentop():
     return template('comment.html', my_list= my_list)
 
-#post method
-@post('/comment')
+
+@post('/comment')   #post method
 def comment_adding():
     psw=request.forms.get('password')
-    comment=request.forms.get('comment')
+    comment= request.forms.get('comment')
     if create_hash(psw) == password:
         my_list.append(comment)
         return template('comment.html', my_list=my_list)
     else:
         return template('comment.html', my_list=my_list)
-
-
-
-
-
-
 
 
 @route('/')
