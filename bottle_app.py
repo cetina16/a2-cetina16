@@ -21,6 +21,22 @@ def create_hash(password):
 def new_comment_adding():
     return template('comment.html', my_list=my_list)
 
+@route("/doityourself.html")
+def index():
+    return template("doityourself.html")
+
+@route("/whatisvanlife.html")
+def index():
+    return template("whatisvanlife.html")
+
+@route("/types.html")
+def index():
+    return template("types.html")
+
+@route("/index.html")
+def index():
+    return template("index.html")
+
 @post('/comment')   #post method
 def comment_adding():
     psw=request.forms.get('password')
