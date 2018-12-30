@@ -34,12 +34,12 @@ def types():
 def whatisvanlife():
     return template("whatisvanlife.html")
 
-@route('/comment')
+@route('/x')
 def commentop():
     return template('comment.html', my_list= my_list)
 
 
-@post('/comment')   #post method
+@post('/x')   #post method
 def comment_adding():
     psw=request.forms.get('password')
     comment= request.forms.get('comment')

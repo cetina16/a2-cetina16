@@ -1,67 +1,43 @@
 <!DOCTYPE html>
-	<html lang="en-US">
-		<head>
-		  <title> Vanlife </title>
-		<meta charset="utf-8"/>
-        <link rel= "stylesheet" href= "/static/style.css">
-        <link rel="icon" href="/static/vl.ico">
-        <style> 
+<html lang="en-US">
+	<head>
+	<meta charset="UTF-8">
+		<title>comment</title>
+		<link rel="stylesheet" href="/static/style.css" />
+<link rel="icon" href="/static/vl.ico" >
+<style> 
 		.box {width:800px;
               margin:auto;
               width:800px;
               background-color: lemonchiffon;
               border: 1px solid darkblue;}
         </style>
-		</head>
-	    <body>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- <header>
-  <img src="/static/vl.png" alt="vanlife designed by Gimp" width="350" height="150">
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- </header>
-
- <div class="menu">
+	</head>
+	<body>
+	<img src="/static/vl.png" alt="vanlife designed by Gimp" width="350" height="150">
+	<div class="menu">
 		     <ul>
-				
-				  <li><a href="/static/index.html">Mainpage</a></li>
+				   <li><a href="/static/index.html">Mainpage</a></li>
 				 <li><a href="/static/whatisvanlife.html">WhatisVanLife</a></li>
 				 <li><a href="/static/doityourself.html">Do it Yourself</a></li>
 				 <li><a href="/static/types.html">Types </a></li> 
-				 <li><a href="/static/comment.html">Comments </a></li> 
+				 <li><a href="/static/comment.html">Comments </a></li>
 			 </ul> </div><br>
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; 
-&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; 
-&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-
-  <div class="box">
-  <p style= "font-family: Times New Roman, sans-serif ;text-align:justify;text-indent:10px;
-   text-align: center;margin:auto ; padding:20px;
-  color: darkblue; font-size: 20pt"> Comments </p> </div>
- 
- 
- <form action = "/comment" method = "post">
-			<h2>Comment:</h2><br>
-			<label> Please enter your comment:</label>
-			<textarea name="comment" rows="10" cols="50"></textarea>
+							
+	<form action = "/x" method = "post">		
+			
+			<label> Please enter your comment:</label> <br>
+			<textarea name="Comments" rows="5" cols="85"></textarea>
+			
 			<br><h3>Password:</h3><br>
 			<input type="password" name="password" ><br>
-    <p>burada bir soru olacak?</p>
-            <input type="radio" name="chooseoone" value="Yes">Yes<br>
-             <input type="radio" name="chooseoone" value="No">No<br>
+            
 			<input type="submit" value="Sent">		
-	</form> 
-	for i in range(len(my_list)):
-
-			<p> {{i+1}}. {{my_list[i]}} </p>
+	</form>
+	
+	%for x in range(len(my_list)):
+        	
+        	<p>{{x+1}}. {{my_list[x]}}</p>
 	%end
-
-	 
-
-
-		
-
-
-
-
-</body>
+	</body>
 </html>
