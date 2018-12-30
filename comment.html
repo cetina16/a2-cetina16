@@ -11,7 +11,10 @@
               width:800px;
               background-color: lemonchiffon;
               border: 1px solid darkblue;}
-        </style>
+			  
+	    .box { color: lemonchiffon;}
+		
+		</style>
 	</head>
 	<body>
 	<img src="/static/vl.png" alt="vanlife designed by Gimp" width="350" height="150">
@@ -23,7 +26,8 @@
 				 <li><a href="/static/types.html">Types </a></li> 
 				 <li><a href="/static/comment.html">Comments </a></li>
 			 </ul> </div><br>
-			 <div class="box">
+			
+			<div class="box">
 
 							
 	
@@ -57,7 +61,8 @@
   color: darkblue; font-size: 20pt"> Please enter your comment:</label><br>
 		<textarea name="comment" rows="10" cols="100"></textarea><br>
 		<div class="table1">
-		<input type="submit" value="Sent" text-align="center"></div>
+		<input type="submit" value="Sent" text-align="center">
+		</div>
 		
 		
 	</form>
@@ -84,9 +89,12 @@
 <p style= "font-family: Times New Roman, sans-serif ;text-align:justify;text-indent:10px;
    text-align: center;margin:auto ; padding:20px;
   color: darkblue; font-size: 20pt"> Previously entered comments........... </p>
-
+  
+  <div class="gizle">
 	%for i in range(len(comments)):
         <p>{{i+1}}. {{comments[i]}}</p>
 	%end
+	
+	</div>
 		</body>
 </html>
